@@ -10,6 +10,5 @@ public class JPanelSettings extends JPanel {
     public JPanelSettings() {}
 
     public static void main(String[] args) {
-        new JPanelFinance();
     }
 }

@@ -3,6 +3,7 @@ package org.example;
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseAdapter;
 import java.util.ArrayList;
@@ -15,42 +16,22 @@ public class TabbedPaneTest extends JFrame
     public TabbedPaneTest()
     {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-//        JTabbedPane tabsLeft = new JTabbedPane(JTabbedPane.TOP,
-//                JTabbedPane.SCROLL_TAB_LAYOUT);
-//
-//        setValues();
-//
-//        for(int i = 1; i <= panels.size(); i++){
-//            tabsLeft.addTab(tabNames.get(i - 1), panels.get(i - 1));
-//            tabsLeft.setMnemonicAt(i - 1, String.valueOf(i).charAt(0));
-//        }
-//        // Подключение слушателя событий
-//        tabsLeft.addChangeListener(new ChangeListener() {
-//            public void stateChanged(ChangeEvent e) {
-//                // Получение выделенной вкладки
-//                JPanel panel = (JPanel)((JTabbedPane)e.getSource()).getSelectedComponent();
-//                // Добавление на вкладку новой метки
-//                panel.add(new JLabel("Haha"));
-//            }
-//        });
-//        // Подключение слушателя мыши
-//        tabsLeft.addMouseListener(new MouseAdapter() {
-//            public void mouseClicked(MouseEvent e) {
-//                // Определяем индекс выделенной мышкой вкладки
-//                int idx = ((JTabbedPane)e.getSource()).indexAtLocation(e.getX(), e.getY());
-//                System.out.println("Выбрана вкладка " + idx);
-//            }
-//        });
-//        getContentPane().add(tabsLeft);
-        JPanel panel = new JPanel();
-        JPanelFinance finance = new JPanelFinance();
-        panel.add(finance);
-        finance = new JPanelFinance();
-        panel.add(finance);
-        getContentPane().add(panel);
-        setSize(1280, 720);
+        JTabbedPane tabs = new JTabbedPane(JTabbedPane.TOP,
+                JTabbedPane.SCROLL_TAB_LAYOUT);
+        tabs.setFont(new Font("Dialog", Font.PLAIN, 25));
+
+        JPanelFinance financeResupply = new JPanelFinanceResupply();
+        tabs.addTab("Пополнение", financeResupply);
+
+        JPanelFinanceClient financeClient = new JPanelFinanceClient();
+        tabs.addTab("Расчет", financeClient);
+
+        getContentPane().add(tabs);
+
+        setSize(720, 1280);
         setVisible(true);
     }
+
     public static void main(String[] args) {
         new TabbedPaneTest();
     }
@@ -59,15 +40,5 @@ public class TabbedPaneTest extends JFrame
         JPanel panel = new JPanel();
         panel.add(new JLabel(name));
         return panel;
-    }
-
-    public void setValues(){
-        panels.add(getNewTabbedPane("Финансы"));
-        panels.add(getNewTabbedPane("Управление"));
-        panels.add(getNewTabbedPane("Настройки"));
-
-        tabNames.add("Финансы");
-        tabNames.add("Управление");
-        tabNames.add("Настройки");
     }
 }
