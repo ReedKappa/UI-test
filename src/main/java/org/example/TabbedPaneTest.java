@@ -11,10 +11,9 @@ import java.util.List;
 
 public class TabbedPaneTest extends JFrame
 {
-    private List<String> tabNames = new ArrayList<>();
-    private List<JPanel> panels = new ArrayList<>();
     public TabbedPaneTest()
     {
+        super("МСО");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         JTabbedPane tabs = new JTabbedPane(JTabbedPane.TOP,
                 JTabbedPane.SCROLL_TAB_LAYOUT);
@@ -26,6 +25,9 @@ public class TabbedPaneTest extends JFrame
         JPanelFinanceClient financeClient = new JPanelFinanceClient();
         tabs.addTab("Расчет", financeClient);
 
+        JPanelSettings settings = new JPanelSettings();
+        tabs.addTab("Настройки", settings);
+
         getContentPane().add(tabs);
 
         setSize(720, 1280);
@@ -34,11 +36,5 @@ public class TabbedPaneTest extends JFrame
 
     public static void main(String[] args) {
         new TabbedPaneTest();
-    }
-
-    public JPanel getNewTabbedPane(String name){
-        JPanel panel = new JPanel();
-        panel.add(new JLabel(name));
-        return panel;
     }
 }
