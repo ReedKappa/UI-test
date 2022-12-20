@@ -1,6 +1,7 @@
 package org.example;
 
 import javafx.event.ActionEvent;
+import javafx.scene.control.ComboBox;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,49 +19,50 @@ public class JPanelSettings extends JPanel {
         constraints.fill = GridBagConstraints.HORIZONTAL;
         constraints.weightx = 0.25;
 
+        constraints.insets = new Insets(3,30,3,3);
         constraints.gridy = 0;
         constraints.gridx = 0;
         this.add(getLabel("Настраеваемый пост"), constraints);
-
         constraints.gridx = 1;
         this.add(getLabel("Платная пауза"), constraints);
-
         constraints.gridx = 2;
         this.add(getLabel("Бесплатная пауза"), constraints);
 
+        constraints.insets = new Insets(3,30,140,30);
         constraints.gridy = 1;
         constraints.gridx = 0;
-        this.add(getLabel("ПОСТ 2"), constraints);
-
+        JComboBox box = new JComboBox(InfoAboutPosts.posts.toArray());
+        box.setFont(new Font("Dialog", Font.PLAIN, fontSize));
+        this.add(box, constraints);
         constraints.gridx = 1;
-        this.add(getLabel("5"), constraints);
-
+        this.add(getTextField("5", fontSize), constraints);
         constraints.gridx = 2;
-        this.add(getLabel("5:00"), constraints);
+        this.add(getTextField("5:00", fontSize), constraints);
 
+        constraints.insets = new Insets(3,30,40,30);
         constraints.gridy = 2;
         constraints.gridx = 0;
         this.add(getLabel("№ реле"), constraints);
-
         constraints.gridx = 1;
         this.add(getLabel("Название"), constraints);
-
         constraints.gridx = 2;
         this.add(getLabel("Цена/мин."), constraints);
 
         for (int i = 0; i < servicesList.size(); i++){
+            constraints.insets = new Insets(3,30,40,30);
             i = i + 3;
             constraints.ipady = 0;
             constraints.gridy = i;
             constraints.gridx = 0;
             this.add(getLabel(String.format("%d.", i - 2)), constraints);
             constraints.gridx = 1;
-            this.add(getLabel(servicesList.get(i - 3).getName()), constraints);
+            this.add(getTextField(servicesList.get(i - 3).getName(), fontSize), constraints);
             constraints.gridx = 2;
-            this.add(getLabel(String.format("%d", servicesList.get(i - 3).getCost())), constraints);
+            this.add(getTextField(String.format("%d", servicesList.get(i - 3).getCost()), fontSize), constraints);
             i = i - 3;
         }
 
+        constraints.insets = new Insets(80,3,3,3);
         constraints.gridy = servicesList.size() + 3;
         constraints.gridx = 2;
         this.add(getButton("Сохранить"), constraints);
@@ -77,23 +79,16 @@ public class JPanelSettings extends JPanel {
         servicesList.add(new InfoAboutServices("Название", 20));
     }
 
-    public JTextField getTextField(String name){
+    public JTextField getTextField(String text, int fontSize){
         JTextField textField = new JTextField(20);
         textField.setFont(new Font("Dialog", Font.PLAIN, fontSize));
-        textField.setName(name);
+        textField.setText(text);
         return textField;
     }
 
     public JLabel getLabel(String text){
         JLabel label = new JLabel(text);
         label.setFont(new Font("Dialog", Font.PLAIN, fontSize));
-        return label;
-    }
-
-    public JLabel getLabel(String text, int fontSize){
-        JLabel label = new JLabel(text);
-        label.setFont(new Font("Dialog", Font.PLAIN, fontSize));
-        label.setHorizontalAlignment(JLabel.CENTER);
         return label;
     }
 

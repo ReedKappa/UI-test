@@ -19,6 +19,8 @@ public class TabbedPaneTest extends JFrame
                 JTabbedPane.SCROLL_TAB_LAYOUT);
         tabs.setFont(new Font("Dialog", Font.PLAIN, 25));
 
+        InfoAboutPosts.setValues();
+
         JPanelFinance financeResupply = new JPanelFinanceResupply();
         tabs.addTab("Пополнение", financeResupply);
 
@@ -30,7 +32,7 @@ public class TabbedPaneTest extends JFrame
 
         getContentPane().add(tabs);
 
-        setSize(720, 1280);
+        setSize(820, 1280);
         setVisible(true);
     }
 

@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b65c39c7-9759-4071-8806-59c7513a30f1" name="Changes" comment="Что-то готово">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/InfoAboutServices.java" afterDir="false" />
+    <list default="true" id="b65c39c7-9759-4071-8806-59c7513a30f1" name="Changes" comment="настроечки">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/InfoAboutPosts.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/JPanelSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/JPanelSettings.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/TabbedPaneTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/TabbedPaneTest.java" afterDir="false" />
@@ -97,7 +97,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671494086650</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="настроечки">
+      <created>1671539550892</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1671539550892</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -116,6 +123,7 @@
     <MESSAGE value="Вкладки доработанно" />
     <MESSAGE value="Вкладки доработанн" />
     <MESSAGE value="Что-то готово" />
-    <option name="LAST_COMMIT_MESSAGE" value="Что-то готово" />
+    <MESSAGE value="настроечки" />
+    <option name="LAST_COMMIT_MESSAGE" value="настроечки" />
   </component>
 </project>
